@@ -10,7 +10,9 @@ const Navbar = () => {
     setShowLinks(!showLinks);
   };
   const linkStyles = {
-    height: showLinks ? `${linksRef.current.getBoundingClientRect().height}px` : "0px",
+    height: showLinks
+      ? `${linksRef.current.getBoundingClientRect().height}px`
+      : "0px",
   };
   return (
     <div className="nav-center">
@@ -36,6 +38,17 @@ const Navbar = () => {
           })}
         </ul>
       </div>
+      {/* {social links} */}
+      <ul className="social-icons">
+        {social.map((socialIcon) => {
+          const { id, icon, url } = socialIcon;
+          return (
+            <li key={id}>
+              <a href={url}>{icon}</a>
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 };
